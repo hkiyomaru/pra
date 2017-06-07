@@ -89,11 +89,13 @@ def main():
     contrib = ev / np.sum(ev)
     ccr = np.zeros_like(contrib)
     for i in range(r):
-        ccr[i] = np.sum(contrib[:i+1])
+        ccr[i] = np.sum(contrib[:i])
 
     # visualize CCR
     sns.plt.plot(range(r), ccr)
-    sns.plt.show()
+    sns.plt.xlabel('number of dimensions')
+    sns.plt.ylabel('cumulative contribution ratio (CCR)')
+    sns.plt.savefig('results/ccr.png')
 
 
 if __name__ == '__main__':
