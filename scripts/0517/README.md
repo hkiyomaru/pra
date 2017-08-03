@@ -1,6 +1,6 @@
 # Problem
 
-Apply PCA and Fisher LDA to samples generated from two Gaussian distributions.
+Apply PCA to real data, and try the several application.
 
 # Development environment
 
