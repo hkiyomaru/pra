@@ -80,10 +80,8 @@ class EMALgorithm(object):
                 for _d in range(d):
                     mean[_k, _d] = np.sum(gamma[:, _k] * x[:, _d]) / nk
 
-                cov[_k] = np.zeros((d, d))
-                for _n in range(n):
-                    tmp = (x[_n] - mean[_k]).reshape((d, 1))
-                    cov[_k] += gamma[_n, _k] * np.matmul(tmp, tmp.T) / nk
+                tmp = x - mean[_k]
+                cov[_k] = np.dot(gamma[:, _k] * tmp.T, tmp) / nk
 
                 pi[_k] = nk / n
 
